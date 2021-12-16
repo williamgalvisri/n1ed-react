@@ -39,7 +39,7 @@ export class N1ED extends React.Component<IAllProps> {
 
             let config = JSON.parse(JSON.stringify((window as any).n1edConfig));
             config["integration"] = "react";
-
+            config = {...config, ...this?.props?.init ?? {}}
             // @ts-ignore
             return <Editor {...this.props} apiKey={undefined} inline={false} outputFormat="html" init={config}/>
         } else {
